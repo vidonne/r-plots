@@ -13,3 +13,11 @@ obesity_data <- world_bank_countries %>%
   mutate(
     year = year %>% as_factor
   )
+
+obesity_data |> 
+  ggplot(aes(x = reorder(continent, desc(median)),
+             y = median,
+             ymin = lower,
+             ymax = upper,
+             color = year)) +
+  geom_pointrange(position = position_dodge(width = .6))

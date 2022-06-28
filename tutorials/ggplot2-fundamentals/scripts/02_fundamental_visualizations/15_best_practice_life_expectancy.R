@@ -15,3 +15,10 @@ life_expectancy <- world_bank_countries %>%
     max = max(life_expectancy_at_birth, na.rm = TRUE)
   ) %>% 
   ungroup()
+
+life_expectancy |> 
+  ggplot(aes(x = year,
+             ymin = min,
+             ymax = max,
+             fill = continent)) +
+  geom_ribbon(alpha = .2)

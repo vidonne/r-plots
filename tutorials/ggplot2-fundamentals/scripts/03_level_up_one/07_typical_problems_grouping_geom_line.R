@@ -32,19 +32,42 @@ fake_data %>%
   geom_line()
 
 # Select the data for the mapped variables
-# arrange the values on the x axis
-
+# arrange the values on the x variable
+fake_data |> 
+  select(year, co2_emission) |> 
+  arrange(year)
 
 # If you want to see multiple lines, select the values
 # of one grouping variable and see if the values 
 # for this line make sense
-
+fake_data |> 
+  filter(country == "United States") |> 
+  select(year, co2_emission) |> 
+  arrange(year)
 
 # If yes, group by this variable with group, color or linetype
-
+fake_data %>% 
+  ggplot(aes(x = year,
+             y = co2_emission,
+             color = country)) + 
+  geom_line()
 
 # Solution to the problem -------------------------------------------------
-
+world_bank_countries %>% 
+  filter(country %in% c("Germany", "United States", 
+                        "China", "Spain")) %>% 
+  ggplot(aes(x = year,
+             y = co2_emissions_tons_per_capita,
+             group = country)) + 
+  geom_line()
 
 
 # One grouping might not be enough ----------------------------------------
+world_bank_countries %>% 
+  filter(country %in% c("Germany", "United States", 
+                        "China", "Spain")) %>% 
+  ggplot(aes(x = year,
+             y = co2_emissions_tons_per_capita,
+             group = country,
+             color = continent)) + 
+  geom_line()

@@ -12,7 +12,12 @@ world_bank_countries <- read_csv("data/world_bank_countries.csv")
 #  geom_<NAME_OF_GEOMETRIC_OBJECT>() +
 #  geom_<NAME_OF_GEOMETRIC_OBJECT>()
 
-
+world_bank_countries |> 
+  filter(year == 2016) |> 
+  ggplot(aes(x = continent,
+             y = overweight)) +
+geom_boxplot(alpha = 1, fill = "grey50") +
+  geom_jitter(width = .2)
 
 
 # Principle  --------------------------------------------------------------

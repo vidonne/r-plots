@@ -13,4 +13,9 @@ overweight_summarized <- world_bank_countries %>%
   mutate(year = as.double(year)) %>% 
   filter(year == 2010)
 
+overweight_summarized |> 
+  ggplot(aes(x = continent,
+             ymin = lower,
+             ymax = upper)) +
+  geom_errorbar(width = .2)
 

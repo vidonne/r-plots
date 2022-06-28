@@ -9,7 +9,9 @@ forests <- world_bank_areas %>%
 
 
 forests %>% 
-  ggplot(aes(x = area,
+  ggplot(aes(x = reorder(area, -forest_land),
              y = forest_land,
              fill = year)) +
-  geom_col(position = position_dodge2())
+  geom_col(position = position_dodge(width = .6),
+           width = .6,
+           alpha = .7)

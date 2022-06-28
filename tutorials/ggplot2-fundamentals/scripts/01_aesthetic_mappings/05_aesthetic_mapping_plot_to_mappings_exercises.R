@@ -17,12 +17,13 @@ world_bank_countries %>%
 # Exercises ----------------------------------------------------------
 
 # Area chart: Write down your aes function here:
-
+# aes(x = year, y = population_total)
 
 # Line chart: Write down your aes function here:
-
+# aes(x = year, y = population_total, color = country)
 
 # Boxplot: Write down your aes function here:
-
+# aes(x = continent, y = co2_emissions_tons_per_capita, fill = continent)
 
 # Barplot: Write down your aes function here:
+# aes(x = continent)

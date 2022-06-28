@@ -8,4 +8,8 @@ renewable_energy <- world_bank_countries %>%
   select(country, year, renewable_energie_consumption) %>% 
   drop_na(renewable_energie_consumption)
 
-
+renewable_energy |> 
+  ggplot(aes(x = year,
+             y = renewable_energie_consumption,
+             color = country)) +
+  geom_line()

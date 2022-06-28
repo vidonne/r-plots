@@ -10,7 +10,7 @@ aes(
   x = continent,
   y = life_expectancy_at_birth
 )
-# TODO: 
+# TODO: geom_col, geom_boxplot
 
 
 # Exercise 2:
@@ -19,7 +19,7 @@ aes(
   y = gdp_per_capita,
   color = continent
 )
-# TODO: 
+# TODO: geom_line, geom_area, geom_point
 
 
 # Exercise 3:
@@ -27,4 +27,4 @@ aes(
   x = year,
   y = internet_usage
 )
-# TODO: 
+# TODO: geom_line, geom_area, geom_point

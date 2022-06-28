@@ -32,3 +32,17 @@ world_bank_income %>%
 
 # Mappings in a geometric object are only 
 # applied to this geometric object
+world_bank_countries %>% 
+  filter(year == 2016) %>% 
+  ggplot(aes(x = continent,
+             y = overweight)) +
+  geom_boxplot() +
+  geom_jitter(aes(color = continent), width = .2)
+
+world_bank_income %>% 
+  filter(year == 2016) %>% 
+  ggplot(aes(x = gdp_per_capita,
+             y = birth_rate,
+             label = income_group)) +
+  geom_point(aes(color = income_group), size = 5)+
+  geom_text(hjust = 0, nudge_x = 550)

@@ -14,12 +14,23 @@ co2_per_year_and_continent %>%
 
 
 # The problem -------------------------------------------------------------
-
+co2_per_year_and_continent %>% 
+  ggplot(aes(continent, mean)) +
+  geom_col(aes(fill = year), position = "stack")
 
 # The simple solution -----------------------------------------------------
-
+co2_per_year_and_continent %>% 
+  ggplot(aes(continent, mean)) +
+  geom_col(aes(fill = year), position = "dodge")
 
 # Adjacent bars with position_dodge() -------------------------------------
-
+co2_per_year_and_continent %>% 
+  ggplot(aes(continent, mean)) +
+  geom_col(aes(fill = year), width = .7,
+           position = position_dodge(width = .7))
 
 # Space between bars with position_dodge() --------------------------------
+co2_per_year_and_continent %>% 
+  ggplot(aes(continent, mean)) +
+  geom_col(aes(fill = year), width = .7,
+           position = position_dodge(width = .8))

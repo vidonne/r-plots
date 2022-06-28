@@ -17,7 +17,9 @@ my_bar_chart <- world_bank_countries %>% #
 # scale_<AESTHETIC>
 
 # Variable scales ---------------------------------------------------------
-my_bar_chart 
+my_bar_chart +
+  scale_fill_discrete(name = "My years",
+                      direction = -1)
 
 # Shortcut scales ---------------------------------------------------------
 world_bank_countries %>% 
@@ -25,11 +27,13 @@ world_bank_countries %>%
   ggplot(aes(x = gdp_per_capita,
              y = birth_rate,
              size = population_total)) +
-  geom_point()
+  geom_point() +
+  scale_size(name = "Total pop")
 
 
 # Named scales ------------------------------------------------------------
-my_bar_chart
+my_bar_chart +
+  scale_fill_viridis_d()
 
 
 # Binned scales -----------------------------------------------------------
@@ -38,9 +42,12 @@ world_bank_countries %>%
   ggplot(aes(x = gdp_per_capita,
              y = birth_rate,
              color = internet_usage)) +
-  geom_point()
+  geom_point() +
+  scale_color_steps()
 
 
 # Manual scales -----------------------------------------------------------
-my_bar_chart
+my_bar_chart +
+  scale_fill_manual(values = c("#0072bc",
+                               "#ececec"))
 
